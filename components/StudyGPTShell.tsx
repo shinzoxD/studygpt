@@ -508,13 +508,13 @@ export function StudyGPTShell() {
         </header>
 
         <div
-          className={`mx-auto grid w-full max-w-[1800px] flex-1 gap-4 p-4 lg:grid-cols-[280px_minmax(0,1fr)] ${
+          className={`mx-auto grid w-full max-w-[1800px] flex-1 gap-4 p-4 lg:min-h-0 lg:grid-cols-[280px_minmax(0,1fr)] lg:overflow-hidden ${
             visualizationOpen
               ? "xl:grid-cols-[280px_minmax(0,1fr)_minmax(0,1fr)]"
               : "xl:grid-cols-[280px_minmax(0,1fr)]"
           }`}
         >
-          <div className="hidden lg:block">
+          <div className="hidden h-full min-h-0 lg:block">
             <Sidebar
               sessions={sortedSessions}
               activeSessionId={activeSession?.id ?? null}
@@ -527,7 +527,7 @@ export function StudyGPTShell() {
             />
           </div>
 
-          <div className="min-w-0">
+          <div className="min-w-0 lg:h-full lg:min-h-0">
             <Chat
               activeModelLabel={activeModel.label}
               agentRuntime={agentRuntime}
@@ -545,7 +545,7 @@ export function StudyGPTShell() {
           </div>
 
           {visualizationOpen ? (
-            <div className="hidden min-w-0 xl:block">
+            <div className="hidden min-w-0 xl:block xl:h-full xl:min-h-0">
               <VisualizationPanel
                 key={visualizationKey}
                 visual={latestVisual}

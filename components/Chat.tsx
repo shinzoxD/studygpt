@@ -77,7 +77,7 @@ export function Chat({
   };
 
   return (
-    <Card className="flex min-h-[calc(100vh-7.5rem)] flex-col overflow-hidden">
+    <Card className="flex h-full min-h-0 flex-col overflow-hidden">
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between gap-4">
           <div className="min-w-0">
@@ -201,7 +201,7 @@ export function Chat({
             onKeyDown={handleKeyDown}
             rows={4}
             className="min-h-[8rem] border-0 bg-transparent px-2 shadow-none focus-visible:ring-0"
-            placeholder="Ask anything. Try: ‘Explain neural networks like I’m 12 and show a mind map.’"
+            placeholder="Ask anything. Try: 'Explain neural networks like I'm 12 and show a mind map.'"
           />
           <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
             <p className="text-xs text-muted-foreground">

@@ -31,7 +31,7 @@ export function ChartView({ visual }: ChartViewProps) {
   const config = inferChartConfig(visual);
   if (!config) {
     return (
-      <div className="flex h-[24rem] items-center justify-center rounded-[1.6rem] border border-border bg-muted/35 text-sm text-muted-foreground">
+      <div className="flex h-full min-h-[22rem] items-center justify-center rounded-[1.6rem] border border-border bg-muted/35 text-sm text-muted-foreground">
         The model did not return enough structured data for a chart yet.
       </div>
     );
@@ -44,7 +44,7 @@ export function ChartView({ visual }: ChartViewProps) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="h-[24rem] rounded-[1.6rem] border border-border bg-background/55 p-3"
+      className="h-full min-h-[22rem] rounded-[1.6rem] border border-border bg-background/55 p-3"
     >
       <ResponsiveContainer width="100%" height="100%">
         {chartType === "pie" ? (

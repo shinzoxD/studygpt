@@ -71,7 +71,7 @@ export function VisualizationPanel({
   };
 
   return (
-    <Card className="flex h-full min-h-[calc(100vh-7.5rem)] flex-col overflow-hidden">
+    <Card className="flex h-full min-h-0 flex-col overflow-hidden">
       <CardHeader className="pb-4">
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -109,9 +109,9 @@ export function VisualizationPanel({
           </div>
         </div>
       </CardHeader>
-      <CardContent className="flex min-h-0 flex-1 flex-col gap-4">
+      <CardContent className="flex min-h-0 flex-1 flex-col gap-4 overflow-hidden">
         {!workingVisual ? (
-          <div className="grid min-h-[24rem] place-items-center rounded-[1.7rem] border border-dashed border-border bg-muted/25 p-8 text-center">
+          <div className="grid min-h-0 flex-1 place-items-center rounded-[1.7rem] border border-dashed border-border bg-muted/25 p-8 text-center">
             <div>
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/12 text-primary">
                 <Sparkles className="h-7 w-7" />
@@ -128,29 +128,31 @@ export function VisualizationPanel({
           </div>
         ) : (
           <>
-            <div ref={exportRef} className="space-y-4">
-              {showMermaid ? (
-                <MermaidFallback chart={mermaidChart} />
-              ) : workingVisual.type === "mindmap" ? (
-                <MindMap
-                  animationKey={`${workingVisual.title}-${workingVisual.nodes.length}-${workingVisual.edges.length}`}
-                  visual={workingVisual}
-                  onSelectNode={setSelectedNode}
-                />
-              ) : (
-                <ChartView visual={workingVisual} />
-              )}
-            </div>
+            <div className="flex min-h-0 flex-1 flex-col gap-4">
+              <div ref={exportRef} className="min-h-0 flex-1">
+                {showMermaid ? (
+                  <MermaidFallback chart={mermaidChart} />
+                ) : workingVisual.type === "mindmap" ? (
+                  <MindMap
+                    animationKey={`${workingVisual.title}-${workingVisual.nodes.length}-${workingVisual.edges.length}`}
+                    visual={workingVisual}
+                    onSelectNode={setSelectedNode}
+                  />
+                ) : (
+                  <ChartView visual={workingVisual} />
+                )}
+              </div>
 
-            <div className="flex flex-wrap gap-2">
-              <Button type="button" variant="secondary" size="sm" onClick={() => exportVisual("png")}>
-                <Download className="h-4 w-4" />
-                Export PNG
-              </Button>
-              <Button type="button" variant="secondary" size="sm" onClick={() => exportVisual("svg")}>
-                <Download className="h-4 w-4" />
-                Export SVG
-              </Button>
+              <div className="flex flex-wrap gap-2">
+                <Button type="button" variant="secondary" size="sm" onClick={() => exportVisual("png")}>
+                  <Download className="h-4 w-4" />
+                  Export PNG
+                </Button>
+                <Button type="button" variant="secondary" size="sm" onClick={() => exportVisual("svg")}>
+                  <Download className="h-4 w-4" />
+                  Export SVG
+                </Button>
+              </div>
             </div>
 
             {workingVisual.type === "mindmap" ? (

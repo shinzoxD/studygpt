@@ -44,7 +44,7 @@ export function Sidebar({
   const savedTopics = sessions.filter((session) => session.saved);
 
   return (
-    <Card className="flex h-full min-h-[calc(100vh-7.5rem)] flex-col overflow-hidden">
+    <Card className="flex h-full min-h-0 flex-col overflow-hidden">
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between gap-3">
           <CardTitle className="text-base">Workspace</CardTitle>

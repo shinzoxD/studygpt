@@ -53,7 +53,7 @@ export function MermaidFallback({ chart }: MermaidFallbackProps) {
 
   return (
     <div
-      className="rounded-[1.6rem] border border-border bg-background/55 p-4"
+      className="h-full min-h-[22rem] overflow-auto rounded-[1.6rem] border border-border bg-background/55 p-4"
       dangerouslySetInnerHTML={{ __html: svg }}
     />
   );

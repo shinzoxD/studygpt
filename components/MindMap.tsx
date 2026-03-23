@@ -148,7 +148,7 @@ export function MindMap({ animationKey, visual, onSelectNode }: MindMapProps) {
   }, [laidOutNodes, setNodes]);
 
   return (
-    <div className="h-[30rem] overflow-hidden rounded-[1.7rem] border border-border bg-background/60">
+    <div className="h-full min-h-[22rem] overflow-hidden rounded-[1.7rem] border border-border bg-background/60">
       <ReactFlow
         nodes={nodes}
         edges={edges}
