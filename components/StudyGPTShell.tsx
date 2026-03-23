@@ -510,7 +510,7 @@ export function StudyGPTShell() {
         <div
           className={`mx-auto grid w-full max-w-[1800px] flex-1 gap-4 p-4 lg:grid-cols-[280px_minmax(0,1fr)] ${
             visualizationOpen
-              ? "xl:grid-cols-[280px_minmax(0,1fr)_430px]"
+              ? "xl:grid-cols-[280px_minmax(0,1fr)_minmax(0,1fr)]"
               : "xl:grid-cols-[280px_minmax(0,1fr)]"
           }`}
         >
