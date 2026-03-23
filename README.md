@@ -145,8 +145,8 @@ Configure these in your GitHub repository before expecting auto-deploys to work:
 
 1. Repository secret: `HF_TOKEN`
    - create a Hugging Face write token with access to the target Space
-2. Repository variable: `HF_USERNAME`
-3. Repository variable: `HF_SPACE_NAME`
+2. Repository variable: `HF_SPACE_REPO`
+   - example: `shinzobolte/StudyGPT`
 
 Once those are set, every push to `main` will redeploy the Hugging Face Space.
 
